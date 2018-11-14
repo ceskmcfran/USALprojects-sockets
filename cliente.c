@@ -1,8 +1,8 @@
 /*
 ** Fichero: cliente.c
 ** Autores:
-** Francisco Blázquez Matías 70919093L
-** David Pulido Macías 70905670M
+** Francisco Blázquez Matías
+** David Pulido Macías
 */
 
 #include <sys/types.h>
