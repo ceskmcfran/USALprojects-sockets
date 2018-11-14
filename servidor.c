@@ -1,8 +1,8 @@
 /*
 ** Fichero: servidor.c
 ** Autores:
-** Francisco Bl·zquez MatÌas 70919093L
-** David Pulido MacÌas 70905670M
+** Francisco Bl√°zquez Mat√≠as 
+** David Pulido Mac√≠as 
 */
 
 /*
@@ -32,9 +32,9 @@
 #define PUERTO 9093        //Puerto
 #define ADDRNOTFOUND        0xffffffff        /* return address for unfound host */
 #define BUFFERSIZE        1024        //Buffer de los paquetes enviados y recibidos
-#define PATHSIZE 1000        //TamaÒo de la ruta maxima
+#define PATHSIZE 1000        //Tama√±o de la ruta maxima
 #define MAXHOST 128
-#define TIMEOUT 6 //Timeout para la seÒal de alarma
+#define TIMEOUT 6 //Timeout para la se√±al de alarma
 
 extern int errno;
 
@@ -210,7 +210,7 @@ char *argv[];
                     FIN=1;
                             close (ls_TCP);
                             close (s_UDP);
-                    perror("\nFinalizando el servidor. Se√al recibida en elect\n "); 
+                    perror("\nFinalizando el servidor. Se√Éal recibida en elect\n "); 
                 }
             }
             else { 
@@ -287,8 +287,8 @@ char *argv[];
                                                         }
                                                         /*Rellenamos la estructura para bindear*/
                                                         sCliUDP_in.sin_family = AF_INET; //Asignacion de la familia de direccion
-                                                        sCliUDP_in.sin_port = 0; //bind() elegir· un puerto aleatoriamente
-                                                        sCliUDP_in.sin_addr.s_addr = INADDR_ANY; //pone la Ip del seridor autom·ticamente
+                                                        sCliUDP_in.sin_port = 0; //bind() elegir√° un puerto aleatoriamente
+                                                        sCliUDP_in.sin_addr.s_addr = INADDR_ANY; //pone la Ip del seridor autom√°ticamente
                                                         /*Bindeamos el nuevo socket con la estructura que ha rellenado el recvfrom al recibir el mensaje del cliente*/
                                                         if (bind(sCliUDP, (struct sockaddr *) &sCliUDP_in, sizeof(struct sockaddr_in)) == -1) {
                                                                 perror(argv[0]);
@@ -303,7 +303,7 @@ char *argv[];
                                         }
                                 }
                         }
-                }   /* Fin del bucle infinito de atenciÛn a clientes */
+                }   /* Fin del bucle infinito de atenci√≥n a clientes */
         /* Cerramos los sockets UDP y TCP */
         close(ls_TCP);
         close(s_UDP);
@@ -344,7 +344,7 @@ void serverTCP(int s, struct sockaddr_in clientaddr_in)
         FILE *html;        //Puntero al archivo del archivo html a leer
         FILE *p;        //Puntero al archivo del registro
         DIR *dire;        //Puntero a directorio
-        struct dirent *dt; //Estructura donde estar· la informaciÛn sobre el archivo que se esta "sacando" en cada momento
+        struct dirent *dt; //Estructura donde estar√° la informaci√≥n sobre el archivo que se esta "sacando" en cada momento
         char registro[]= "peticiones.log"; //Nombre del archivo del registro
         char pathToWorkspace[BUFFERSIZE]; //Ruta al directorio del codigo fuente
         char dirWeb[] = "/www"; //Nombre del directorio de ficheros html
@@ -352,7 +352,7 @@ void serverTCP(int s, struct sockaddr_in clientaddr_in)
         char pathToFileHTML[BUFFERSIZE];
         char envioCl[BUFFERSIZE]; //Datos que recibe el servidor del cliente
         char respuesta[BUFFERSIZE]; //Envio de respuesta al cliente
-        char *str , *cachos; //Cadenas que guardar·n las partes separadas del strtok
+        char *str , *cachos; //Cadenas que guardar√°n las partes separadas del strtok
         char vCabecera[3][100]; //Vector que guarda la cabecera separada
         char vConnection[3][50]; //Vector que guarda la conexion separada
         char vCachos[4][200]; //Vector que guarda los trocos del mensaje del cliente separados por \r\n
@@ -484,7 +484,7 @@ void serverTCP(int s, struct sockaddr_in clientaddr_in)
                 strcpy(respuesta, conexionRed);
                 strcat(respuesta, " ");
 
-                /*Conseguimos la orden que manda el cliente, si no es GET se devolver· el error*/
+                /*Conseguimos la orden que manda el cliente, si no es GET se devolver√° el error*/
                 if(strcmp(vCabecera[0], "GET") != 0){
                         /*501 NOT IMPLEMENTED*/
                         /*RESPUESTA: */
@@ -802,7 +802,7 @@ void serverUDP(int s, char * buffer, struct sockaddr_in clientaddr_in){
         FILE *html;        //Puntero al archivo del archivo html a leer
         FILE *p;        //Puntero al archivo del registro
         DIR *dire;        //Puntero a directorio
-        struct dirent *dt; //Estructura donde estar· la informaciÛn sobre el archivo que se esta "sacando" en cada momento
+        struct dirent *dt; //Estructura donde estar√° la informaci√≥n sobre el archivo que se esta "sacando" en cada momento
         char registro[]= "peticiones.log"; //Nombre del archivo del registro
         char pathToWorkspace[BUFFERSIZE]; //Ruta al directorio del codigo fuente
         char dirWeb[] = "/www"; //Nombre del directorio de ficheros html
@@ -810,7 +810,7 @@ void serverUDP(int s, char * buffer, struct sockaddr_in clientaddr_in){
         char pathToFileHTML[BUFFERSIZE];
         char respuesta[BUFFERSIZE]; //Envio de respuesta al cliente
         char envioCl[BUFFERSIZE]; //Envio del cliente
-        char *str , *cachos; //Cadenas que guardar·n las partes separadas del strtok
+        char *str , *cachos; //Cadenas que guardar√°n las partes separadas del strtok
         char vCabecera[3][100]; //Vector que guarda la cabecera separada
         char vConnection[3][50]; //Vector que guarda la conexion separada
         char vCachos[4][200]; //Vector que guarda los trocos del mensaje del cliente separados por \r\n
@@ -926,7 +926,7 @@ void serverUDP(int s, char * buffer, struct sockaddr_in clientaddr_in){
                 strcpy(respuesta, conexionRed);
                 strcat(respuesta, " ");
 
-                /*Conseguimos la orden que manda el cliente, si no es GET se devolver· el error*/
+                /*Conseguimos la orden que manda el cliente, si no es GET se devolver√° el error*/
                 if(strcmp(vCabecera[0], "GET") != 0){
                         /*501 NOT IMPLEMENTED*/
                         /*RESPUESTA: */
@@ -1216,7 +1216,7 @@ void serverUDP(int s, char * buffer, struct sockaddr_in clientaddr_in){
 
  
 
-/*SeÒal para la seÒal de alarma*/
+/*Se√±al para la se√±al de alarma*/
 void handler(){
 
         printf("No hay mas mensajes que recibir\n");
